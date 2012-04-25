@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="http://localhost:8001/faye.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <button id="send">Click me</button>
+  
+  <div id="output"></div>
+
+  <script>
+    $(function() {
+      var client = new Faye.Client('http://localhost:8001/faye');
+      
+      client.subscribe('/messages', function(message) {     
+        $('#output').prepend(message.text + '<br />');
+      });
+      
+      $('#send').click(function(e) {
+        client.publish('/messages', { text: 'hello world!' });
+      });      
+    });
+  </script>
+</body>
+</html>

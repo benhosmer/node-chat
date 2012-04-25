@@ -1,0 +1,12 @@
+BODY, #userinput {
+  font-family: menlo, consolas, monaco, monospace;
+  font-size: 16px;
+}
+
+h2, #userinput { margin-left: 158px; }
+#userinput { width: 400px; width: 75% }
+#chat { margin-top: 0.5em; }
+
+.user { display: inline-block; width: 150px; text-align: right; padding-right: 8px; }
+.line { padding: 2px 0; }
+.line:nth-child(odd) { background-color: #eff; }
